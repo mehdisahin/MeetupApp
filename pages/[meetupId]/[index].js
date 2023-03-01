@@ -1,31 +1,14 @@
-import { useRouter } from "next/router";
+import MeetupDetail from "../../components/meetups/MeetupDetail";
 
-import Card from "../ui/Card";
-import classes from "./MeetupItem.module.css";
-
-function MeetupItem(props) {
-  const router = useRouter();
-
-  function showDetailsHandler() {
-    router.push("/" + props.id);
-  }
-
+function MeetupDetails() {
   return (
-    <li className={classes.item}>
-      <Card>
-        <div className={classes.image}>
-          <img src={props.image} alt={props.title} />
-        </div>
-        <div className={classes.content}>
-          <h3>{props.title}</h3>
-          <address>{props.address}</address>
-        </div>
-        <div className={classes.actions}>
-          <button onClick={showDetailsHandler}>Show Details</button>
-        </div>
-      </Card>
-    </li>
+    <MeetupDetail
+      image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg"
+      title="First Meetup"
+      address="Some Street 5, Some City"
+      description="This is a first meetup"
+    />
   );
 }
 
-export default MeetupItem;
+export default MeetupDetails;
